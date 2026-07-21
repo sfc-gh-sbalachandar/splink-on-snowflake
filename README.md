@@ -2,9 +2,7 @@
 
 Run [Splink v4](https://github.com/moj-analytical-services/splink) probabilistic record linkage on Snowflake using Snowpark Connect for Spark (SCOS). Two approaches are demonstrated:
 
-> **Read the article:** [TODO: INSERT MEDIUM ARTICLE LINK]
-
-> **License:** [TODO: Add LICENSE file]
+> **Read the article:** [Splink on Snowflake](https://medium.com/@shreshta.balachandar/identity-resolution-with-splink-on-snowflake-5a99937026d8)
 
 1. **Lift-and-shift with Java UDF JARs** — zero Splink code changes; upload the bundled similarity JARs
 2. **Zero-JAR with RapidFuzz** — replace JARs with Python scalar UDFs backed by RapidFuzz (C++ engine, Anaconda channel)
