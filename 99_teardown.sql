@@ -1,0 +1,23 @@
+-- 99_teardown.sql
+-- Drops all resources created by 00_setup.sql.
+-- Run with ACCOUNTADMIN or equivalent.
+
+USE ROLE ACCOUNTADMIN;
+
+-- External Access Integration and Network Rule
+DROP EXTERNAL ACCESS INTEGRATION IF EXISTS SPLINK_GITHUB_EAI;
+DROP NETWORK RULE IF EXISTS SPLINK_DEMO.PUBLIC.GITHUB_NETWORK_RULE;
+
+-- Compute Pool: stop all services, suspend, then drop
+ALTER COMPUTE POOL IF EXISTS SPLINK_COMPUTE_POOL STOP ALL;
+ALTER COMPUTE POOL IF EXISTS SPLINK_COMPUTE_POOL SUSPEND;
+DROP COMPUTE POOL IF EXISTS SPLINK_COMPUTE_POOL;
+
+-- Database (cascades to all schemas, tables, stages, functions within)
+DROP DATABASE IF EXISTS SPLINK_DEMO;
+
+-- Warehouse
+DROP WAREHOUSE IF EXISTS SPLINK_WH;
+
+-- Role
+DROP ROLE IF EXISTS SPLINK_ROLE;
